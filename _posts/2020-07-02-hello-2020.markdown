@@ -1,0 +1,17 @@
+---
+layout:     post
+title:      "Welcome to Benny Blog"
+subtitle:   " \"Hello World, Hello Blog\""
+date:       2020-07-02 12:00:00
+author:     "Benny"
+header-img: "img/post-bg-2020.jpg"
+tags:
+    - life
+---
+
+> “Yeah It's on. ”
+
+
+## Hi,2020
+
+Testing
