@@ -1,10 +1,10 @@
 # Site settings
-title: Your Blog
-SEOTitle: 你的博客 | Your Blog
+title: Benny's Blog
+SEOTitle: Benny's Blog
 header-img: img/home-bg.jpg
-email: huxpro@gmail.com
-description: ""
-keyword: ""
+email: i@onriver.top
+description: "This is Benny's Blog"
+keyword: "Benny"
 url: "http://onriver.top"              # your host, for absolute URL
 baseurl: "/"         # for example, '/blog' if your blog hosted on 'host/blog'
 
@@ -12,11 +12,11 @@ baseurl: "/"         # for example, '/blog' if your blog hosted on 'host/blog'
 
 # SNS settings
 RSS: false
-weibo_username:     huxpro
-zhihu_username:     huxpro
-github_username:    huxpro
-#twitter_username:  huxpro
-facebook_username:  huxpro
+weibo_username:     jsrc001
+zhihu_username:     jsrc001
+github_username:    jsrc
+twitter_username:   jsrc001
+facebook_username:  jsrc001
 
 
 
@@ -50,7 +50,7 @@ kramdown:
 #disqus_username: _your_disqus_short_name_
 
 # Duoshuo settings
-duoshuo_username: huxblog
+duoshuo_username: 
 # Share component is depend on Comment so we can NOT use share only.
 duoshuo_share: true                     # set to false if you want to use Comment without Sharing
 
@@ -59,10 +59,10 @@ duoshuo_share: true                     # set to false if you want to use Commen
 
 # Analytics settings
 # Baidu Analytics
-ba_track_id: 4cc1f2d8f3067386cc5cdb626a202900
+ba_track_id: 
 # Google Analytics
-ga_track_id: 'UA-49627206-1'            # Format: UA-xxxxxx-xx
-ga_domain: huangxuan.me
+ga_track_id: ''            # Format: UA-xxxxxx-xx
+ga_domain: 
 
 
 
@@ -82,19 +82,10 @@ featured-condition-size: 1              # A tag will be featured if the size of 
 # Friends
 friends: [
     {
-        title: "Hux Blog",
-        href: "http://huangxuan.me"
-    },{
-        title: "Foo",
-        href: "#"
-    },{
-        title: "Bar",
-        href: "#"
+        title: "Benny's Blog",
+        href: "http://onriver.top"
     },{
         title: "Example Friends",
-        href: "#"
-    },{
-        title: "It helps SEO",
         href: "#"
     }
 ]
