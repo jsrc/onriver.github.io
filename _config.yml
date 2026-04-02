@@ -3,9 +3,9 @@ title: Benny's Blog
 SEOTitle: Benny's Blog
 header-img: img/home-bg.jpg
 email: i@onriver.top
-description: "This is Benny's Blog"
-keyword: "Benny"
-url: "http://onriver.top"              # your host, for absolute URL
+description: "记录技术、阅读和日常想法。"
+keyword: "Benny, 江上, Blog"
+url: "https://onriver.top"              # your host, for absolute URL
 baseurl: "/"         # for example, '/blog' if your blog hosted on 'host/blog'
 
 
@@ -68,7 +68,7 @@ ga_domain:
 
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
-sidebar-about-description: "N/A"
+sidebar-about-description: "记录技术、阅读和一些不成体系的想法。"
 sidebar-avatar: /img/avatar.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
 
 
@@ -83,9 +83,9 @@ featured-condition-size: 1              # A tag will be featured if the size of 
 friends: [
     {
         title: "Benny's Blog",
-        href: "http://onriver.top"
+        href: "https://onriver.top"
     },{
-        title: "Example Friends",
-        href: "#"
+        title: "GitHub",
+        href: "https://github.com/jsrc/onriver.github.io"
     }
 ]
