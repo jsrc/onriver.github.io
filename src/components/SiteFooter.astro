@@ -1,0 +1,16 @@
+---
+import { copy, type Locale } from "../data/site";
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+---
+
+<footer class="site-footer">
+  <p>{copy[locale].footer}</p>
+  <p>
+    <a href="https://github.com/jsrc/onriver.github.io">GitHub</a>
+  </p>
+</footer>

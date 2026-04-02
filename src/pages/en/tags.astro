@@ -1,0 +1,44 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { copy } from "../../data/site";
+import { getPostsByLocale, getPostUrl } from "../../lib/blog";
+
+const locale = "en";
+const posts = await getPostsByLocale(locale);
+const groups = Object.entries(
+  posts.reduce<Record<string, typeof posts>>((acc, entry) => {
+    for (const tag of entry.data.tags) {
+      acc[tag] ??= [];
+      acc[tag].push(entry);
+    }
+
+    return acc;
+  }, {})
+).sort(([left], [right]) => left.localeCompare(right));
+---
+
+<BaseLayout locale={locale} switchHref="/tags/" title={copy[locale].nav.tags}>
+  <section class="content-section">
+    <div class="section-heading">
+      <p>{copy[locale].sections.archive}</p>
+      <h1>Tags</h1>
+    </div>
+    <div class="tag-index">
+      {groups.map(([tag, entries]) => (
+        <section id={tag} class="tag-group">
+          <div class="tag-group-heading">
+            <h2>{tag}</h2>
+            <span>{entries.length}</span>
+          </div>
+          <ul>
+            {entries.map((entry) => (
+              <li>
+                <a href={getPostUrl(entry)}>{entry.data.title}</a>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

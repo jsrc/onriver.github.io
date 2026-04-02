@@ -1,0 +1,27 @@
+---
+import { copy, localeInfo, type Locale } from "../data/site";
+
+interface Props {
+  locale: Locale;
+  switchHref: string;
+}
+
+const { locale, switchHref } = Astro.props;
+const text = copy[locale];
+---
+
+<header class="site-header">
+  <a class="brand" href={localeInfo[locale].pathPrefix || "/"}>
+    <span class="brand-mark">Onriver</span>
+    <span class="brand-name">Benny's Blog</span>
+  </a>
+
+  <nav class="site-nav" aria-label="Primary">
+    <a href={localeInfo[locale].pathPrefix || "/"}>{text.nav.home}</a>
+    <a href={`${localeInfo[locale].pathPrefix || ""}/about/`}>{text.nav.about}</a>
+    <a href={`${localeInfo[locale].pathPrefix || ""}/tags/`}>{text.nav.tags}</a>
+    <a class="language-link" href={switchHref}>
+      {localeInfo[locale].switchLabel}
+    </a>
+  </nav>
+</header>

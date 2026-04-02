@@ -1,0 +1,36 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { copy } from "../../data/site";
+
+const locale = "en";
+const text = copy[locale];
+---
+
+<BaseLayout
+  locale={locale}
+  switchHref="/about/"
+  title={text.about.title}
+  description={text.about.description}
+>
+  <section class="subpage-hero" style="--hero-image: url(/img/about-bg.jpg);">
+    <div class="subpage-hero-inner">
+      <p class="hero-eyebrow">{text.about.title}</p>
+      <h1>{text.about.description}</h1>
+    </div>
+  </section>
+
+  <section class="content-section about-grid">
+    <div class="about-copy">
+      <p class="lead">{text.about.intro}</p>
+      {text.about.notes.map((note) => <p>{note}</p>)}
+    </div>
+    <aside class="about-card">
+      <p>What stays</p>
+      <ul>
+        <li>The old images and covers</li>
+        <li>A bilingual writing flow in Chinese and English</li>
+        <li>A calm home for code, tools, reading, and life notes</li>
+      </ul>
+    </aside>
+  </section>
+</BaseLayout>

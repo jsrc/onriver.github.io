@@ -1,0 +1,36 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { copy } from "../data/site";
+
+const locale = "zh-cn";
+const text = copy[locale];
+---
+
+<BaseLayout
+  locale={locale}
+  switchHref="/en/about/"
+  title={text.about.title}
+  description={text.about.description}
+>
+  <section class="subpage-hero" style="--hero-image: url(/img/about-bg.jpg);">
+    <div class="subpage-hero-inner">
+      <p class="hero-eyebrow">{text.about.title}</p>
+      <h1>{text.about.description}</h1>
+    </div>
+  </section>
+
+  <section class="content-section about-grid">
+    <div class="about-copy">
+      <p class="lead">{text.about.intro}</p>
+      {text.about.notes.map((note) => <p>{note}</p>)}
+    </div>
+    <aside class="about-card">
+      <p>现在的方向</p>
+      <ul>
+        <li>保留旧站照片与封面图</li>
+        <li>中英双语并列维护</li>
+        <li>围绕代码、工具、阅读和日常写作</li>
+      </ul>
+    </aside>
+  </section>
+</BaseLayout>

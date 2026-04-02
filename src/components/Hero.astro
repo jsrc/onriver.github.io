@@ -1,0 +1,19 @@
+---
+import { copy, type Locale } from "../data/site";
+
+interface Props {
+  locale: Locale;
+  image: string;
+}
+
+const { locale, image } = Astro.props;
+const hero = copy[locale].hero;
+---
+
+<section class="hero" style={`--hero-image: url(${image});`}>
+  <div class="hero-inner">
+    <p class="hero-eyebrow">{hero.eyebrow}</p>
+    <h1>{hero.title}</h1>
+    <p class="hero-blurb">{hero.blurb}</p>
+  </div>
+</section>

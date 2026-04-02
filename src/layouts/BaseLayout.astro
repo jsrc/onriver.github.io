@@ -1,0 +1,51 @@
+---
+import "../styles/global.css";
+import SiteFooter from "../components/SiteFooter.astro";
+import SiteHeader from "../components/SiteHeader.astro";
+import { copy, localeInfo, siteMeta, type Locale } from "../data/site";
+
+interface Props {
+  title?: string;
+  description?: string;
+  locale: Locale;
+  switchHref: string;
+}
+
+const { title, description, locale, switchHref } = Astro.props;
+const pageTitle = title ? `${title} | ${siteMeta.title}` : siteMeta.title;
+const pageDescription = description ?? copy[locale].description;
+const canonical = new URL(Astro.url.pathname, siteMeta.siteUrl).toString();
+---
+
+<!doctype html>
+<html lang={localeInfo[locale].htmlLang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={siteMeta.accent} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" href="/img/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Manrope:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="page-shell">
+      <SiteHeader locale={locale} switchHref={switchHref} />
+      <main class="page-main">
+        <slot />
+      </main>
+      <SiteFooter locale={locale} />
+    </div>
+  </body>
+</html>

@@ -1,0 +1,35 @@
+---
+import { copy, type Locale } from "../data/site";
+import type { BlogEntry } from "../lib/blog";
+import { formatDate, getPostUrl } from "../lib/blog";
+
+interface Props {
+  entry: BlogEntry;
+  locale: Locale;
+}
+
+const { entry, locale } = Astro.props;
+const text = copy[locale];
+---
+
+<article class="post-card">
+  <a class="post-card-image" href={getPostUrl(entry)}>
+    <img src={entry.data.heroImage} alt={entry.data.title} loading="lazy" />
+  </a>
+  <div class="post-card-body">
+    <div class="post-card-meta">
+      <time datetime={entry.data.publishDate.toISOString()}>
+        {formatDate(entry.data.publishDate, locale)}
+      </time>
+      <span>{entry.data.tags.join(" · ")}</span>
+    </div>
+    <h2>
+      <a href={getPostUrl(entry)}>{entry.data.title}</a>
+    </h2>
+    {entry.data.subtitle && <p class="post-card-subtitle">{entry.data.subtitle}</p>}
+    <p>{entry.data.excerpt}</p>
+    <a class="post-card-link" href={getPostUrl(entry)}>
+      {text.sections.more}
+    </a>
+  </div>
+</article>

@@ -1,0 +1,35 @@
+---
+import Hero from "../components/Hero.astro";
+import PostCard from "../components/PostCard.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { copy } from "../data/site";
+import { collectTags, getPostsByLocale } from "../lib/blog";
+
+const locale = "zh-cn";
+const posts = await getPostsByLocale(locale);
+const tags = collectTags(posts);
+---
+
+<BaseLayout locale={locale} switchHref="/en/">
+  <Hero locale={locale} image="/img/home-bg.jpg" />
+
+  <section class="content-section">
+    <div class="section-heading">
+      <p>{copy[locale].sections.latest}</p>
+      <h2>{copy[locale].description}</h2>
+    </div>
+    <div class="post-grid">
+      {posts.map((entry) => <PostCard entry={entry} locale={locale} />)}
+    </div>
+  </section>
+
+  <section class="content-section tag-strip">
+    <div class="section-heading">
+      <p>{copy[locale].sections.archive}</p>
+      <h2>从主题开始浏览</h2>
+    </div>
+    <div class="tag-cloud">
+      {tags.map((tag) => <a href={`/tags/#${tag}`}>{tag}</a>)}
+    </div>
+  </section>
+</BaseLayout>

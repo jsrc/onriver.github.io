@@ -1,0 +1,15 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const locale = "zh-cn";
+---
+
+<BaseLayout locale={locale} switchHref="/en/" title="404">
+  <section class="subpage-hero" style="--hero-image: url(/img/404-bg.jpg);">
+    <div class="subpage-hero-inner">
+      <p class="hero-eyebrow">404</p>
+      <h1>这页不在河道里。</h1>
+      <p><a href="/">回到首页</a></p>
+    </div>
+  </section>
+</BaseLayout>
